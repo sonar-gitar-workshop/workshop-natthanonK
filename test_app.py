@@ -17,6 +17,7 @@ def test_create_order(client):
     )
 
     assert response.status_code == 201
+    assert response.json["reference"] == "ORDER-000001"
     assert response.json["items"][0]["unit_price_cents"] == 2500
     assert response.json["total_cents"] == 5000
 
